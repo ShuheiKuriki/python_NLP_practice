@@ -7,5 +7,7 @@ if __name__ == '__main__':
     with urllib.request.urlopen(url) as res:
         byte = res.read()
         # 文字コードの変換：cchardetを使って自動で文字コードを判定
-        html = byte.decode(cchardet.detect(byte)['encoding'])
+        sth = cchardet.detect(byte)
+        code = cchardet.detect(byte)['encoding']
+        html = byte.decode(code)
         print(html)
